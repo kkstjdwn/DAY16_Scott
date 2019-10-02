@@ -19,6 +19,12 @@ public class EmpInput {
 		return empno;
 	}
 	
+	public String enameInput() {
+		System.out.println("사원의 이름을 입력하세요");
+		String ename = sn.next();
+		return ename.toUpperCase();
+	}
+	
 	
 	public EmpDTO empInsert() {
 		EmpDTO dto = new EmpDTO();

@@ -13,6 +13,9 @@ public class BonusController {
 	
 	public BonusController() {
 	sc = new Scanner(System.in);
+	dao = new BonusDAO();
+	view = new BonusView();
+	input = new BonusInput();
 	}
 	
 	public void start() {
@@ -30,17 +33,19 @@ public class BonusController {
 			
 			switch (select) {
 			case 1:
-				view.getSelectList(dao.getSelectList());
+				view.selectList(dao.getSelectList());
 				break;
 				
 			case 2:
-				view.getSelectOne(dao.getSelectOne(input.selectOne));
+				
+				view.SelectOne(dao.getSelectOne(input.selectOne()));
 				break;
 			case 3:
-				dao.boInsert(input.boInsert);
+				dao.boInsert(input.boInsert());
 				break;
 			case 4:
 				dao.boDelete(input.selectOne());
+				
 				break;
 			case 5:
 				check = !check;

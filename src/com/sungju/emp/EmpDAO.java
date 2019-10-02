@@ -190,8 +190,45 @@ public class EmpDAO {
 		return result;
 	}
 	
-	Random random = new Random(Calendar.getInstance().getTimeInMillis());
-	int num = random.nextInt(14)+1;
+	public ArrayList<EmpDTO> getSelectList(String ename) {
+		ArrayList<EmpDTO> ar = new ArrayList<EmpDTO>();
+		try {
+			con = DBconnector.getConnect();
+			String sql = "select * from emp "
+					+ "where ename = ? "
+					+ "order by empno asc";
+			st = con.prepareStatement(sql);
+			ename = "%"+ename+"%";
+			st.setString(1, ename);
+			rs = st.executeQuery();
+			while (rs.next()) {
+				EmpDTO emp = new EmpDTO();
+				emp.setEmpno(rs.getInt(1));
+				emp.setEname(rs.getString(2));
+				emp.setJob(rs.getString(3));
+				emp.setMgr(rs.getInt(4));
+				emp.setHiredate(rs.getDate(5));
+				emp.setSal(rs.getInt(6));
+				emp.setComm(rs.getInt(7));
+				emp.setDeptno(rs.getInt(8));
+
+				ar.add(emp);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return ar;
+		
+	}
 	
 	
 }

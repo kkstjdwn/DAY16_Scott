@@ -67,7 +67,7 @@ public class BonusDAO {
 
 	}
 	
-	public List<BonusDTO> getSelectList() {
+	public ArrayList<BonusDTO> getSelectList() {
 		ar = new ArrayList<BonusDTO>();
 		
 		try {
@@ -118,7 +118,7 @@ public class BonusDAO {
 			e.printStackTrace();
 		} finally {
 			try {
-				rs.close();
+				
 				st.close();
 				con.close();
 			} catch (SQLException e) {

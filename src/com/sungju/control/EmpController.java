@@ -32,7 +32,8 @@ public class EmpController {
 			System.out.println("2.개별정보출력");
 			System.out.println("3.사원정보추가");
 			System.out.println("4.사원정보삭제");
-			System.out.println("5.종료");
+			System.out.println("5.사원이름검색");
+			System.out.println("6.종료");
 			System.out.println("-------------");
 			
 			System.out.println("조회를 원하는 번호 입력");
@@ -55,8 +56,10 @@ public class EmpController {
 			case 4:
 				dao.empDelete(input.empnoInput());
 				break;
-				
 			case 5:
+				view.view(dao.getSelectList(input.enameInput()));;
+				break;
+			case 6:
 				System.out.println("종료합니다");
 				check = !check;
 				break;
