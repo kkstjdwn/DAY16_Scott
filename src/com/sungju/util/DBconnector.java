@@ -8,7 +8,7 @@ public class DBconnector {
 	public static Connection getConnect() throws Exception {
 		String user = "scott";
 		String password = "tiger";
-		String url = "jdbc:oracle:thin:@192.168.56.101:1521:xe";
+		String url = "jdbc:oracle:thin:@192.168.183.3:1521:xe";
 		String driver = "oracle.jdbc.driver.OracleDriver";
 		Connection con = null;
 		Class.forName(driver);

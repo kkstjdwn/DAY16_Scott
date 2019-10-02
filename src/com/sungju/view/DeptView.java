@@ -1,7 +1,6 @@
 package com.sungju.view;
 
-import java.util.ArrayList;
-
+import java.util.List;
 import com.sungju.dept.DeptDTO;
 
 public class DeptView {
@@ -12,16 +11,23 @@ public class DeptView {
 			System.out.println(dto.getDeptno()+"\t"+dto.getDname()+"\t"+dto.getLoc());
 			
 		}else {
-			System.out.println("일치하는 정보가 없습니다.");
+			System.out.println("일치하는 정보가 없습니다");
 		}
+		
+		System.out.println();
 		
 	}
 	
-	public void view(ArrayList<DeptDTO> arde) {
-		System.out.println("DEPTNO\tDNAME\tLOC");
-		for (DeptDTO dto : arde) {
-			System.out.println(dto.getDeptno()+"\t"+dto.getDname()+"\t"+dto.getLoc());
+	public void view(List<DeptDTO> arde) {
+		if (arde.size() != 0) {			
+			System.out.println("DEPTNO\tDNAME\tLOC");
+			for (DeptDTO dto : arde) {
+				System.out.println(dto.getDeptno()+"\t"+dto.getDname()+"\t"+dto.getLoc());
+			}
+		} else {
+			System.out.println("저장된 정보가 없습니다");
 		}
+		System.out.println();
 	}
 
 }

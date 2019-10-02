@@ -24,7 +24,8 @@ public class DeptController {
 
 			System.out.println("1.전체정보출력");
 			System.out.println("2.개별정보출력");
-			System.out.println("3.종료");
+			System.out.println("3.부서정보추가");
+			System.out.println("4.종료");
 			System.out.println("-------------");
 			
 			System.out.println("조회를 원하는 번호 입력");
@@ -36,7 +37,7 @@ public class DeptController {
 			
 			switch (ch) {
 			case 1:
-				view.view(dao.sellist());
+				view.view(dao.selList());
 			
 				break;
 				
@@ -46,6 +47,9 @@ public class DeptController {
 				break;
 				
 			case 3:
+				dao.deptInsert(input.deptInsert());
+				break;
+			case 4:
 				System.out.println("종료합니다");
 				check = !check;
 				break;
